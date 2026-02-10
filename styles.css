@@ -1,0 +1,253 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+@font-face {
+  font-family: "Bungee";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(/assets/fonts/bungee.woff2);
+}
+@font-face {
+  font-family: "Nunito";
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+  src: url(/assets/fonts/nunito.woff2);
+}
+*, *::before, *::after {
+  font-family: "Nunito";
+}
+
+h1, h2, h3 {
+  font-family: "Bungee";
+  margin-top: 0.5rem;
+}
+h1 *, h2 *, h3 * {
+  font-family: inherit;
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+h1, h2, h3, p {
+  margin-bottom: 0.5rem;
+}
+
+:root {
+  --clr-white: hsl(0 0 100%);
+  --clr-gray-90: hsl(0 0 90%);
+  --clr-gray-70: hsl(0 0 70%);
+  --clr-gray-50: hsl(0 0 50%);
+  --clr-gray-30: hsl(0 0 30%);
+  --clr-gray-10: hsl(0 0 10%);
+  --clr-black: hsl(0 0 0);
+  --clr-blue: hsl(240, 100%, 70%);
+  --clr-purple: hsl(280, 100%, 65%);
+}
+
+header {
+  background: var(--clr-bg);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem min(2rem, 5%);
+  border-bottom: light-dark(var(--clr-gray-70), var(--clr-gray-30)) solid 1px;
+  position: sticky;
+  top: 0;
+}
+
+header > img {
+  image-rendering: pixelated;
+}
+
+#themePicker {
+  flex: 0;
+  padding: 0.5rem;
+}
+
+footer {
+  user-select: none;
+  padding: 2rem;
+  text-align: center;
+  border-top: light-dark(var(--clr-gray-70), var(--clr-gray-30)) solid 1px;
+  color: light-dark(var(--clr-gray-70), var(--clr-gray-30));
+}
+
+main {
+  padding-block: 2rem;
+}
+
+.content {
+  --gap: clamp(1rem, 6vw, 3rem);
+  --content: min(60ch, 100% - var(--gap) * 2);
+  --breakout: minmax(0, 5rem);
+  --full-width: minmax(var(--gap), 1fr);
+  display: grid;
+  grid-template-columns: [full-width-start] var(--full-width) [breakout-start] var(--breakout) [content-start] var(--content) [content-end] var(--breakout) [breakout-end] var(--full-width) [full-width-end];
+}
+
+.content > * {
+  grid-column: content;
+}
+
+main .figure {
+  margin-block: 12px;
+}
+
+main img {
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.5019607843) 0 4px 12px;
+}
+
+.chairs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) [hall-start] 1fr [hall-end] repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.chairs .chair {
+  user-select: none;
+  border: solid 1px var(--clr-fade);
+  color: var(--clr-gray-10);
+  aspect-ratio: 1/1;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: min(100%, 1rem);
+  transition: background-color 500ms ease;
+}
+
+.chair:hover {
+  background-color: var(--clr-text);
+  transition: background-color 100ms ease;
+}
+
+.chair.peek {
+  color: var(--clr-gray-90);
+}
+
+.glow {
+  color: light-dark(var(--clr-gray-10), var(--clr-white));
+}
+
+.hide-when-light {
+  color: var(--clr-gray-90);
+  user-select: none;
+}
+
+.hide-when-dark {
+  color: var(--clr-gray-10);
+  user-select: none;
+}
+
+.hidden {
+  color: var(--clr-bg);
+}
+
+.cant-select {
+  user-select: none;
+}
+
+.show-when-hover {
+  user-select: none;
+  color: var(--clr-bg);
+  transition: color 1000ms ease;
+}
+.show-when-hover:hover {
+  transition: color 100ms ease;
+  color: unset;
+}
+
+:root {
+  --clr-bg: light-dark(var(--clr-gray-90), var(--clr-gray-10));
+  --clr-text: light-dark(var(--clr-gray-10), var(--clr-gray-90));
+  --clr-fade: light-dark(var(--clr-gray-10), var(--clr-gray-30));
+  color-scheme: light dark;
+  background-color: var(--clr-bg);
+}
+
+*, *::after, *::before {
+  color: var(--clr-text);
+  transition: background-color 500ms ease, color 500ms ease, border 500ms ease;
+}
+
+::selection, .selected {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+:root:has(#themePicker > option[value=light]:checked) {
+  color-scheme: light;
+}
+
+:root:has(#themePicker > option[value=dark]:checked) {
+  color-scheme: dark;
+}
+
+* {
+  color: var(--clr-fade);
+}
+
+h1, h2, h3 {
+  color: var(--clr-text);
+}
+
+a {
+  color: var(--clr-blue);
+}
+
+/*# sourceMappingURL=styles.css.map */

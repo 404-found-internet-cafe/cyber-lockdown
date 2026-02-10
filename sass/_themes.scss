@@ -1,0 +1,42 @@
+:root {
+  --clr-bg: light-dark(var(--clr-gray-90), var(--clr-gray-10));
+  --clr-text: light-dark(var(--clr-gray-10), var(--clr-gray-90));
+  --clr-fade: light-dark(var(--clr-gray-10), var(--clr-gray-30));
+
+  color-scheme: light dark;
+  background-color: var(--clr-bg);
+  
+}
+
+*, *::after, *::before {
+  color: var(--clr-text);
+  transition:
+    background-color 500ms ease,
+    color 500ms ease,
+    border 500ms ease;
+}
+
+::selection, .selected {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+:root:has(#themePicker > option[value="light"]:checked) {
+  color-scheme: light;
+}
+
+:root:has(#themePicker > option[value="dark"]:checked) {
+  color-scheme: dark;
+}
+
+* {
+  color: var(--clr-fade);
+}
+
+h1, h2, h3 {
+  color: var(--clr-text);
+}
+
+a {
+  color: var(--clr-blue);
+}

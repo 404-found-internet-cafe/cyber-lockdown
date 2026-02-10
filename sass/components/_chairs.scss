@@ -1,0 +1,27 @@
+.chairs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) [hall-start] 1fr [hall-end] repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.chairs .chair {
+  user-select: none;
+  border: solid 1px var(--clr-fade);
+  color: var(--clr-gray-10);
+  aspect-ratio: 1 / 1;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: min(100%, 1rem);
+  transition: background-color 500ms ease;
+}
+
+.chair:hover {
+  background-color: var(--clr-text);
+  transition: background-color 100ms ease;
+}
+
+.chair.peek {
+  color: var(--clr-gray-90);
+}

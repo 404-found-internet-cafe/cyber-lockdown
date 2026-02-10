@@ -1,0 +1,26 @@
+header {
+  background: var(--clr-bg);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem min(2rem, 5%);
+  border-bottom: light-dark(var(--clr-gray-70), var(--clr-gray-30)) solid 1px;
+  position: sticky;
+  top: 0;
+}
+
+header > img {
+  image-rendering: pixelated;
+}
+
+#themePicker {
+  flex: 0;
+  padding: 0.5rem;
+}
+
+footer {
+  user-select: none;
+  padding: 2rem;
+  text-align: center;
+  border-top: light-dark(var(--clr-gray-70), var(--clr-gray-30)) solid 1px;
+  color: light-dark(var(--clr-gray-70), var(--clr-gray-30));
+}

@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Bungee";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(/assets/fonts/bungee.woff2);
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+  src: url(/assets/fonts/nunito.woff2);
+}
+
+*, *::before, *::after {
+  font-family: "Nunito";
+}
+
+h1, h2, h3 {
+  font-family: "Bungee";
+  margin-top: 0.5rem;
+  * {
+    font-family: inherit;
+  }
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+h1, h2, h3, p {
+  margin-bottom: 0.5rem;
+}

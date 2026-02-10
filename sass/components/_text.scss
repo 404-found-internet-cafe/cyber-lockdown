@@ -1,0 +1,31 @@
+.glow {
+  color: light-dark(var(--clr-gray-10), var(--clr-white));
+}
+
+.hide-when-light {
+  color: var(--clr-gray-90);
+  user-select: none;
+}
+
+.hide-when-dark {
+  color: var(--clr-gray-10);
+  user-select: none;
+}
+
+.hidden {
+  color: var(--clr-bg);
+}
+
+.cant-select {
+  user-select: none;
+}
+
+.show-when-hover {
+  user-select: none;
+  color: var(--clr-bg);
+  transition: color 1000ms ease;
+  &:hover {
+    transition: color 100ms ease;
+    color: unset;
+  }
+}
