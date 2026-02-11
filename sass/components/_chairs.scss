@@ -17,9 +17,12 @@
   transition: background-color 500ms ease;
 }
 
-.chair:hover {
-  background-color: var(--clr-text);
-  transition: background-color 100ms ease;
+.whiteboard {
+  color: var(--clr-text);
+  padding: 1rem;
+  border: var(--clr-text) solid 1px;
+  text-align: center;
+  border-radius: 0.5em;
 }
 
 .chair.peek {
